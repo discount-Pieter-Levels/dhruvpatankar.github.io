@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teter — [YOUR SURNAME]</title>
+<meta name="description" content="Tries to build brains. Writes essays. Silly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=IBM+Plex+Mono:wght@300;400&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0B0B0A; --hair:#232220; --hair-2:#33312C;
+  --bone:#E7E2D6; --ash:#8A857A; --dust:#55514A;
+  --sodium:#D19A3F;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--void)}
+body{
+  background:var(--void);color:var(--bone);
+  font-family:'Manrope',system-ui,sans-serif;font-weight:300;font-size:18px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  cursor:default;
+}
+::selection{background:var(--sodium);color:var(--void)}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.horizon{
+  position:fixed;left:0;right:0;bottom:0;height:40vh;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(to top,rgba(231,226,214,.05) 0 1px,transparent 1px 9px),
+             linear-gradient(to top,rgba(209,154,63,.06),transparent 70%);
+  -webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);
+}
+.mono{font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
+.whisper{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:var(--ash)}
+
+a{color:var(--bone);text-decoration:none;border-bottom:1px solid var(--hair-2);transition:border-color .2s,color .2s}
+a:hover{border-bottom-color:var(--sodium)}
+
+/* bar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:linear-gradient(var(--void) 60%,transparent)}
+.bar nav{display:flex;gap:1.7rem}
+.bar nav a{border:none;font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
+.bar nav a:hover{color:var(--bone)}
+
+/* hero */
+.hero{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:6rem 2rem 4rem;max-width:960px;margin:0 auto;text-align:center}
+.hero-inner{display:grid;gap:2rem;justify-items:center}
+h1{font-weight:200;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em;line-height:1.05}
+h1 .hi{display:block;font-size:.34em;letter-spacing:.14em;text-transform:uppercase;font-weight:400;color:var(--dust);margin-bottom:.6em}
+.hero .whisper{font-size:1.25rem;max-width:34ch}
+.hero .whisper b{color:var(--sodium);font-weight:400;font-style:normal}
+
+/* the little guy. it watches the cursor. it is very small and very serious. */
+.guy{width:120px;height:120px;color:var(--hair-2)}
+.guy .body{fill:none;stroke:currentColor;stroke-width:.9}
+.guy .eye{fill:var(--bone)}
+.guy .pupil{fill:var(--void)}
+.guy .blush{fill:var(--sodium);opacity:0}
+.guy:hover .blush{opacity:.9;transition:opacity .3s}
+.guy .antenna{transform-origin:60px 24px;animation:wobble 5s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.guy.blink .eye{transform:scaleY(.08);transform-origin:center;transition:transform .08s}
+
+.stamp{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:center}
+.stamp .v{color:var(--ash)}
+.stamp .live{color:var(--sodium)}
+
+/* body */
+main{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 2rem 5rem}
+section{padding:3.6rem 0;border-top:1px solid var(--hair)}
+section h2{font-weight:400;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.4rem}
+section h2 .n{font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.66rem;letter-spacing:.14em;color:var(--dust)}
+section h2 .aside{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;text-transform:none;letter-spacing:0;font-size:1rem;color:var(--ash);margin-left:auto}
+section p{color:var(--bone);max-width:52ch}
+section p+p{margin-top:.8rem}
+
+/* rows: one line each. that's the rule. */
+.rows{display:grid}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:1.2rem;padding:.8rem 0;border-top:1px solid var(--hair);border-bottom:none;transition:padding-left .25s}
+.row:first-child{border-top:none}
+.row:hover{padding-left:.6rem;border-bottom:none}
+.row .t{font-weight:400}
+.row .t small{color:var(--ash);font-weight:300;margin-left:.6em}
+.row .w{font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dust);white-space:nowrap}
+.row:hover .w{color:var(--sodium)}
+
+/* about: photo + a few lines */
+.about{display:grid;grid-template-columns:110px 1fr;gap:1.8rem;align-items:start}
+.about img{width:110px;display:block;filter:grayscale(1) contrast(1.08);border:1px solid var(--hair);transform:rotate(-2deg);transition:transform .3s}
+.about img:hover{transform:rotate(2deg) scale(1.04)}
+.facts{list-style:none;margin-top:1rem;display:grid;gap:.3rem;color:var(--ash);font-size:.95rem}
+.facts li::before{content:'→ ';color:var(--dust)}
+
+/* contact chips */
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chips a{border:1px solid var(--hair-2);border-radius:999px;padding:.35rem .95rem;font-size:.9rem;transition:border-color .2s,transform .2s}
+.chips a:hover{border-color:var(--sodium);transform:translateY(-2px) rotate(-1.5deg)}
+
+/* footer */
+footer{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:2.5rem 2rem 4rem;border-top:1px solid var(--hair);display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+footer .whisper{font-size:1.05rem;max-width:30ch;line-height:1.45}
+footer .btn{border:none;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust);cursor:pointer;background:none}
+footer .btn:hover{color:var(--sodium)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (max-width:640px){
+  .bar{padding:1rem 1.2rem}.bar nav{gap:1rem}
+  .hero,main,footer{padding-left:1.2rem;padding-right:1.2rem}
+  .about{grid-template-columns:1fr}
+  .row{flex-direction:column;gap:.1rem;align-items:flex-start}
+  section h2 .aside{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="horizon" aria-hidden="true"></div>
+
+<header class="bar">
+  <span class="mono">T / [SURNAME]</span>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#doing">Doing</a>
+    <a href="#made">Made</a>
+    <a href="#wrote">Wrote</a>
+    <a href="#hi">Say hi</a>
+  </nav>
+</header>
+
+<!-- ─────────── hero ─────────── -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- the little guy -->
+    <svg class="guy" id="guy" viewBox="0 0 120 120" aria-hidden="true">
+      <g class="antenna">
+        <line x1="60" y1="36" x2="60" y2="16" class="body"/>
+        <circle cx="60" cy="13" r="3" fill="var(--sodium)"/>
+      </g>
+      <rect x="28" y="36" width="64" height="52" rx="16" class="body"/>
+      <g class="eye-group">
+        <circle cx="47" cy="60" r="8" class="eye"/>
+        <circle cx="73" cy="60" r="8" class="eye"/>
+        <circle cx="47" cy="60" r="3" class="pupil" data-pupil/>
+        <circle cx="73" cy="60" r="3" class="pupil" data-pupil/>
+      </g>
+      <circle cx="38" cy="72" r="3" class="blush"/>
+      <circle cx="82" cy="72" r="3" class="blush"/>
+      <path d="M53,76 q7,5 14,0" class="body" stroke-linecap="round"/>
+      <line x1="44" y1="88" x2="44" y2="100" class="body"/>
+      <line x1="76" y1="88" x2="76" y2="100" class="body"/>
+    </svg>
+
+    <h1><span class="hi">hello, I am</span>Teter [Surname]</h1>
+
+    <p class="whisper">I try to build <b>brains</b>. Not the wet kind. Also I write essays and get into arguments about Nietzsche at parties.</p>
+
+    <div class="stamp mono">
+      <span>Bengaluru</span>
+      <span class="v" id="clock">--:--</span>
+      <span class="v" id="mood">mood: [compiling]</span>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<!-- ─────────── about ─────────── -->
+<section id="about" class="reveal">
+  <h2><span class="n">00</span>About <span class="aside">the short version</span></h2>
+  <div class="about">
+    <img src="[YOUR_PHOTO.jpg]" alt="me" width="110" height="138">
+    <div>
+      <p>Engineering undergrad at <a href="https://rvce.edu.in">RVCE</a>. Co-founder of <a href="https://shunyaresearch.systems">Shunya Research</a>, where we make spiking neural nets learn without gradients, because gradients are for cowards.</p>
+      <ul class="facts">
+        <li>[a silly fact about you]</li>
+        <li>[what you're obsessed with this month]</li>
+        <li>[a thing you're bad at]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── doing ─────────── -->
+<section id="doing" class="reveal">
+  <h2><span class="n">01</span>Doing <span class="aside">currently</span></h2>
+  <div class="rows">
+    <a class="row" href="https://shunyaresearch.systems"><span class="t">Shunya Research <small>co-founder</small></span><span class="w">2024 →</span></a>
+    <a class="row" href="https://rvce.edu.in"><span class="t">RVCE <small>B.E. electronics &amp; comms</small></span><span class="w">2022 →</span></a>
+    <a class="row" href="[LINK]"><span class="t">[Org] <small>[role]</small></span><span class="w">[year]</span></a>
+  </div>
+</section>
+
+<!-- ─────────── made ─────────── -->
+<section id="made" class="reveal">
+  <h2><span class="n">02</span>Made <span class="aside">things that mostly work</span></h2>
+  <div class="rows">
+    <a class="row" href="[ARXIV_LINK]"><span class="t">Spiking nets trained by evolution <small>NeurIPS-format paper, arXiv soon</small></span><span class="w">2025</span></a>
+    <a class="row" href="[IEEE_PAPER_LINK]"><span class="t">EMG prosthetic hand <small>reads your muscles, moves a hand</small></span><span class="w">2024</span></a>
+    <a class="row" href="[LINK]"><span class="t">[Project] <small>[one silly line]</small></span><span class="w">[year]</span></a>
+  </div>
+</section>
+
+<!-- ─────────── wrote ─────────── -->
+<section id="wrote" class="reveal">
+  <h2><span class="n">03</span>Wrote <span class="aside">on <a href="[YOUR_SUBSTACK_URL]">substack</a></span></h2>
+  <div class="rows">
+    <a class="row" href="[SUBSTACK_POST_LINK]"><span class="t">Nietzsche, Silicon Valley, and the Third Path</span><span class="w">[date]</span></a>
+    <a class="row" href="[SUBSTACK_POST_LINK]"><span class="t">Indian Traffic and the Game Theory of Civic Collapse</span><span class="w">[date]</span></a>
+    <a class="row" href="[SUBSTACK_POST_LINK]"><span class="t">[Essay title]</span><span class="w">[date]</span></a>
+  </div>
+</section>
+
+<!-- ─────────── say hi ─────────── -->
+<section id="hi" class="reveal">
+  <h2><span class="n">04</span>Say hi <span class="aside">I reply to nice emails</span></h2>
+  <div class="chips">
+    <a href="mailto:[YOUR_EMAIL]">email</a>
+    <a href="https://github.com/[YOUR_GITHUB]">github</a>
+    <a href="https://x.com/[YOUR_TWITTER]">x</a>
+    <a href="[YOUR_SUBSTACK_URL]">substack</a>
+    <a href="https://linkedin.com/in/[YOUR_LINKEDIN]">linkedin</a>
+    <a href="[YOUR_ARXIV_PROFILE]">arxiv</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p class="whisper">[One line you believe. Or a joke. Either is fine, nobody reads footers.]</p>
+  <button class="btn" id="boop">boop the robot ↑</button>
+</footer>
+
+<script>
+(function(){
+  /* clock */
+  var c=document.getElementById('clock');
+  function tick(){c.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})+' IST';}
+  tick();setInterval(tick,30000);
+
+  /* mood — edit this list, it's yours */
+  var moods=['[compiling]','[caffeinated]','[arguing with a spike train]','[reading Wittgenstein]','[debugging reality]'];
+  document.getElementById('mood').textContent='mood: '+moods[Math.floor(Math.random()*moods.length)];
+
+  /* the little guy follows your cursor */
+  var guy=document.getElementById('guy'),pupils=guy.querySelectorAll('[data-pupil]');
+  var eyes=[{x:47,y:60},{x:73,y:60}];
+  window.addEventListener('mousemove',function(e){
+    var r=guy.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+    var a=Math.atan2(e.clientY-cy,e.clientX-cx),d=Math.min(3.5,Math.hypot(e.clientX-cx,e.clientY-cy)/80);
+    pupils.forEach(function(p,i){p.setAttribute('cx',eyes[i].x+Math.cos(a)*d);p.setAttribute('cy',eyes[i].y+Math.sin(a)*d);});
+  });
+  /* it blinks */
+  (function blink(){guy.classList.add('blink');setTimeout(function(){guy.classList.remove('blink')},120);setTimeout(blink,2500+Math.random()*4000);})();
+  /* boop */
+  document.getElementById('boop').addEventListener('click',function(){
+    document.querySelector('.hero').scrollIntoView({behavior:'smooth'});
+    setTimeout(function(){guy.style.transform='scale(1.15) rotate(-6deg)';guy.querySelectorAll('.blush').forEach(function(b){b.style.opacity=.9});
+      setTimeout(function(){guy.style.transform='';guy.querySelectorAll('.blush').forEach(function(b){b.style.opacity=''})},500)},600);
+  });
+  guy.style.transition='transform .25s';
+
+  /* reveal */
+  var els=document.querySelectorAll('.reveal');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

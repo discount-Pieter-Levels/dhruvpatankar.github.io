@@ -3,273 +3,288 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dhruv Patankar</title>
+<title>~dhruv's homepage~</title>
 <meta name="description" content="Tries to build brains. Writes essays. Silly.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=IBM+Plex+Mono:wght@300;400&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<!-- no web fonts. this page uses whatever your computer has lying around. -->
 <style>
-:root{
-  --void:#0B0B0A; --hair:#232220; --hair-2:#33312C;
-  --bone:#E7E2D6; --ash:#8A857A; --dust:#55514A;
-  --sodium:#D19A3F;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;background:var(--void)}
 body{
-  background:var(--void);color:var(--bone);
-  font-family:'Manrope',system-ui,sans-serif;font-weight:300;font-size:18px;line-height:1.7;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  cursor:default;
+  background:#0B0B0A;
+  color:#E7E2D6;
+  font-family:"Times New Roman",Times,serif;
+  font-size:18px;
+  line-height:1.45;
+  margin:0;
+  padding:24px 16px 60px;
 }
-::selection{background:var(--sodium);color:var(--void)}
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+.wrap{max-width:640px;margin:0 auto}
+
+a{color:#D19A3F}
+a:visited{color:#A67A36}
+a:hover{background:#D19A3F;color:#0B0B0A}
+
+.mono{font-family:"Courier New",Courier,monospace}
+.dim{color:#8A857A}
+.dust{color:#55514A}
+.sod{color:#D19A3F}
+
+hr{border:0;border-top:1px dashed #55514A;margin:28px 0}
+
+h1{font-size:34px;font-weight:bold;margin:6px 0 4px}
+h2{font-size:20px;font-weight:bold;margin:0 0 10px}
+h2 small{font-weight:normal;font-style:italic;font-size:16px;color:#8A857A}
+
+.navbar{font-family:"Courier New",monospace;font-size:15px;text-align:center}
+.navbar a{margin:0 2px}
+
+/* ascii robot */
+pre.guy{
+  display:inline-block;margin:0;
+  font-size:15px;line-height:1.15;color:#E7E2D6;
+  cursor:pointer;user-select:none;text-align:left;
 }
-.horizon{
-  position:fixed;left:0;right:0;bottom:0;height:40vh;pointer-events:none;z-index:0;
-  background:repeating-linear-gradient(to top,rgba(231,226,214,.05) 0 1px,transparent 1px 9px),
-             linear-gradient(to top,rgba(209,154,63,.06),transparent 70%);
-  -webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);
+pre.guy .ant{color:#D19A3F}
+
+.center{text-align:center}
+
+/* tables, like god intended */
+table.list{border-collapse:collapse;width:100%}
+table.list td{padding:5px 8px 5px 0;vertical-align:top;border-bottom:1px dotted #33312C}
+table.list td.yr{font-family:"Courier New",monospace;font-size:14px;color:#8A857A;white-space:nowrap;width:1%;text-align:right;padding-left:12px}
+table.list small{color:#8A857A;font-style:italic}
+
+.about{overflow:hidden}
+.about img{
+  float:left;width:110px;margin:4px 16px 8px 0;
+  border:3px ridge #55514A;
+  filter:grayscale(1) contrast(1.1);
 }
-.mono{font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
-.whisper{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:var(--ash)}
+ul.facts{margin:8px 0 0 0;padding-left:20px}
+ul.facts li{list-style:square;color:#8A857A}
 
-a{color:var(--bone);text-decoration:none;border-bottom:1px solid var(--hair-2);transition:border-color .2s,color .2s}
-a:hover{border-bottom-color:var(--sodium)}
+/* 88x31 buttons */
+.buttons{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.b88{
+  width:88px;height:31px;box-sizing:border-box;
+  border:2px outset #8A857A;background:#1A1917;
+  font:bold 9px/1.1 Verdana,Tahoma,sans-serif;color:#E7E2D6;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  text-transform:uppercase;letter-spacing:.3px;padding:0 3px;
+  text-decoration:none;
+}
+a.b88:hover{background:#1A1917;color:#E7E2D6;border-style:inset}
+.b88 .s{color:#D19A3F}
+.b88.inv{background:#D19A3F;color:#0B0B0A;border-color:#E7C07A}
 
-/* bar */
-.bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:linear-gradient(var(--void) 60%,transparent)}
-.bar nav{display:flex;gap:1.7rem}
-.bar nav a{border:none;font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
-.bar nav a:hover{color:var(--bone)}
+.counter{
+  display:inline-block;background:#000;border:2px inset #55514A;
+  font:bold 16px "Courier New",monospace;color:#D19A3F;padding:1px 6px;letter-spacing:3px;
+}
 
-/* hero */
-.hero{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:6rem 2rem 4rem;max-width:960px;margin:0 auto;text-align:center}
-.hero-inner{display:grid;gap:2rem;justify-items:center}
-h1{font-weight:200;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em;line-height:1.05}
-h1 .hi{display:block;font-size:.34em;letter-spacing:.14em;text-transform:uppercase;font-weight:400;color:var(--dust);margin-bottom:.6em}
-.hero .whisper{font-size:1.25rem;max-width:34ch}
-.hero .whisper b{color:var(--sodium);font-weight:400;font-style:normal}
+marquee{font-family:"Courier New",monospace;font-size:14px;color:#8A857A}
 
-/* the little guy. it watches the cursor. it is very small and very serious. */
-.guy{width:120px;height:120px;color:var(--hair-2)}
-.guy .body{fill:none;stroke:currentColor;stroke-width:.9}
-.guy .eye{fill:var(--bone)}
-.guy .pupil{fill:var(--void)}
-.guy .blush{fill:var(--sodium);opacity:0}
-.guy:hover .blush{opacity:.9;transition:opacity .3s}
-.guy .antenna{transform-origin:60px 24px;animation:wobble 5s ease-in-out infinite}
-@keyframes wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
-.guy.blink .eye{transform:scaleY(.08);transform-origin:center;transition:transform .08s}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{visibility:hidden}}
 
-.stamp{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:center}
-.stamp .v{color:var(--ash)}
-.stamp .live{color:var(--sodium)}
+.construction{
+  font-family:"Courier New",monospace;font-size:13px;color:#0B0B0A;
+  background:repeating-linear-gradient(45deg,#D19A3F 0 10px,#0B0B0A 10px 20px);
+  padding:4px;text-align:center;
+}
+.construction span{background:#D19A3F;padding:1px 6px}
 
-/* body */
-main{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 2rem 5rem}
-section{padding:3.6rem 0;border-top:1px solid var(--hair)}
-section h2{font-weight:400;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.4rem}
-section h2 .n{font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.66rem;letter-spacing:.14em;color:var(--dust)}
-section h2 .aside{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;text-transform:none;letter-spacing:0;font-size:1rem;color:var(--ash);margin-left:auto}
-section p{color:var(--bone);max-width:52ch}
-section p+p{margin-top:.8rem}
+button.boop{
+  font:14px "Courier New",monospace;background:#1A1917;color:#E7E2D6;
+  border:2px outset #8A857A;padding:2px 10px;cursor:pointer;
+}
+button.boop:active{border-style:inset}
 
-/* rows: one line each. that's the rule. */
-.rows{display:grid}
-.row{display:flex;justify-content:space-between;align-items:baseline;gap:1.2rem;padding:.8rem 0;border-top:1px solid var(--hair);border-bottom:none;transition:padding-left .25s}
-.row:first-child{border-top:none}
-.row:hover{padding-left:.6rem;border-bottom:none}
-.row .t{font-weight:400}
-.row .t small{color:var(--ash);font-weight:300;margin-left:.6em}
-.row .w{font-family:'IBM Plex Mono',monospace;font-weight:300;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dust);white-space:nowrap}
-.row:hover .w{color:var(--sodium)}
-
-/* about: photo + a few lines */
-.about{display:grid;grid-template-columns:110px 1fr;gap:1.8rem;align-items:start}
-.about img{width:110px;display:block;filter:grayscale(1) contrast(1.08);border:1px solid var(--hair);transform:rotate(-2deg);transition:transform .3s}
-.about img:hover{transform:rotate(2deg) scale(1.04)}
-.facts{list-style:none;margin-top:1rem;display:grid;gap:.3rem;color:var(--ash);font-size:.95rem}
-.facts li::before{content:'→ ';color:var(--dust)}
-
-/* contact chips */
-.chips{display:flex;flex-wrap:wrap;gap:.6rem}
-.chips a{border:1px solid var(--hair-2);border-radius:999px;padding:.35rem .95rem;font-size:.9rem;transition:border-color .2s,transform .2s}
-.chips a:hover{border-color:var(--sodium);transform:translateY(-2px) rotate(-1.5deg)}
-
-/* footer */
-footer{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:2.5rem 2rem 4rem;border-top:1px solid var(--hair);display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
-footer .whisper{font-size:1.05rem;max-width:30ch;line-height:1.45}
-footer .btn{border:none;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust);cursor:pointer;background:none}
-footer .btn:hover{color:var(--sodium)}
-
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
-.reveal.in{opacity:1;transform:none}
-
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-@media (max-width:640px){
-  .bar{padding:1rem 1.2rem}.bar nav{gap:1rem}
-  .hero,main,footer{padding-left:1.2rem;padding-right:1.2rem}
-  .about{grid-template-columns:1fr}
-  .row{flex-direction:column;gap:.1rem;align-items:flex-start}
-  section h2 .aside{margin-left:0;width:100%}
+@media (prefers-reduced-motion:reduce){.blink{animation:none}}
+@media (max-width:500px){
+  body{font-size:17px}
+  h1{font-size:28px}
+  .about img{float:none;display:block;margin:0 0 10px}
 }
 </style>
 </head>
 <body>
-<div class="horizon" aria-hidden="true"></div>
+<div class="wrap">
 
-<header class="bar">
-  <span class="mono">Dhruv Patankar</span>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#doing">Doing</a>
-    <a href="#made">Made</a>
-    <a href="#wrote">Wrote</a>
-    <a href="#hi">Say hi</a>
-  </nav>
-</header>
+<div class="navbar">
+[ <a href="#about">about</a> | <a href="#doing">doing</a> | <a href="#made">made</a> | <a href="#wrote">wrote</a> | <a href="#hi">say hi</a> ]
+</div>
+
+<hr>
 
 <!-- ─────────── hero ─────────── -->
-<section class="hero">
-  <div class="hero-inner">
+<div class="center">
+<pre class="guy" id="guy" title="boop me" aria-label="a small ascii robot">
+<span class="ant">     *</span>
+<span class="ant">     |</span>
+ .-------.
+ |<span id="eL"> o </span> <span id="eR"> o </span>|
+ |<span id="bL"> </span> <span id="mouth">\_/</span> <span id="bR"> </span>|
+ '-------'
+   |   |
+</pre>
 
-    <!-- the little guy -->
-    <svg class="guy" id="guy" viewBox="0 0 120 120" aria-hidden="true">
-      <g class="antenna">
-        <line x1="60" y1="36" x2="60" y2="16" class="body"/>
-        <circle cx="60" cy="13" r="3" fill="var(--sodium)"/>
-      </g>
-      <rect x="28" y="36" width="64" height="52" rx="16" class="body"/>
-      <g class="eye-group">
-        <circle cx="47" cy="60" r="8" class="eye"/>
-        <circle cx="73" cy="60" r="8" class="eye"/>
-        <circle cx="47" cy="60" r="3" class="pupil" data-pupil/>
-        <circle cx="73" cy="60" r="3" class="pupil" data-pupil/>
-      </g>
-      <circle cx="38" cy="72" r="3" class="blush"/>
-      <circle cx="82" cy="72" r="3" class="blush"/>
-      <path d="M53,76 q7,5 14,0" class="body" stroke-linecap="round"/>
-      <line x1="44" y1="88" x2="44" y2="100" class="body"/>
-      <line x1="76" y1="88" x2="76" y2="100" class="body"/>
-    </svg>
+<h1>Dhruv Patankar</h1>
+<p>I try to build <b class="sod">brains</b>. Not the wet kind.<br>
+Also I write essays and get into arguments about Nietzsche at parties.</p>
 
-    <h1><span class="hi">hello, I am</span>Dhruv Patankar</h1>
+<p class="mono dim" style="font-size:14px">
+Bengaluru :: <span id="clock">--:--</span> IST :: status: <span class="sod">online</span><span class="blink">_</span>
+</p>
 
-    <p class="whisper">I try to build <b>brains</b>. Not the wet kind. Also I write essays and get into arguments about Nietzsche at parties.</p>
+<marquee scrollamount="3" id="mood">*** mood: compiling ***</marquee>
+</div>
 
-    <div class="stamp mono">
-      <span>Bengaluru</span>
-      <span class="v" id="clock">--:--</span>
-      <span class="v" id="mood">mood: [compiling]</span>
-    </div>
-  </div>
-</section>
-
-<main>
+<hr>
 
 <!-- ─────────── about ─────────── -->
-<section id="about" class="reveal">
-  <h2><span class="n">00</span>About <span class="aside">the short version</span></h2>
-  <div class="about">
-    <img src="[YOUR_PHOTO.jpg]" alt="me" width="110" height="138">
-    <div>
-      <p>Engineering undergrad at <a href="https://rvce.edu.in">RVCE</a>. Co-founder of <a href="https://shunyaresearch.systems">Shunya Research</a>, where we make spiking neural nets learn without gradients, because gradients are for cowards.</p>
-      <ul class="facts">
-        <li>My ringtone is Caramelldansen</li>
-        <li>Obsessed with brain emulation right now</li>
-        <li>I am really bad at deciding what to eat</li>
-      </ul>
-    </div>
+<div id="about">
+<h2>About <small>(the short version)</small></h2>
+<div class="about">
+  <img src="[YOUR_PHOTO.jpg]" alt="me" width="110" height="138">
+  <div style="overflow:hidden">
+  <p>Engineering undergrad at <a href="https://rvce.edu.in">RVCE</a>. Co-founder of <a href="https://shunyaresearch.systems">Shunya Research</a>, where we make spiking neural nets learn without gradients, because gradients are for cowards.</p>
+  <ul class="facts">
+    <li>My ringtone is Caramelldansen</li>
+    <li>Obsessed with brain emulation right now</li>
+    <li>I am really bad at deciding what to eat</li>
+  </ul>
   </div>
-</section>
+</div>
+</div>
+
+<hr>
 
 <!-- ─────────── doing ─────────── -->
-<section id="doing" class="reveal">
-  <h2><span class="n">01</span>Doing <span class="aside">currently</span></h2>
-  <div class="rows">
-    <a class="row" href="https://shunyaresearch.systems"><span class="t">Shunya Research <small>co-founder</small></span><span class="w">2024 →</span></a>
-    <a class="row" href="https://rvce.edu.in"><span class="t">RVCE <small>B.E. AIML</small></span><span class="w">2023 →</span></a>
-    <a class="row" href="https://www.gonuclei.com/"><span class="t">Nuclei Technologies <small>intern</small></span><span class="w">2026</span></a>
-  </div>
-</section>
+<div id="doing">
+<h2>Doing <small>(currently)</small></h2>
+<table class="list">
+  <tr><td><a href="https://shunyaresearch.systems">Shunya Research</a> <small>co-founder</small></td><td class="yr">2024 &rarr;</td></tr>
+  <tr><td><a href="https://rvce.edu.in">RVCE</a> <small>B.E. AIML</small></td><td class="yr">2023 &rarr;</td></tr>
+  <tr><td><a href="https://www.gonuclei.com/">Nuclei Technologies</a> <small>intern</small></td><td class="yr">2026</td></tr>
+</table>
+</div>
+
+<hr>
 
 <!-- ─────────── made ─────────── -->
-<section id="made" class="reveal">
-  <h2><span class="n">02</span>Made <span class="aside">things that mostly work</span></h2>
-  <div class="rows">
-    <a class="row" href="https://arxiv.org/abs/2605.30361"><span class="t">Spiking nets trained by evolution <small></small></span><span class="w">2025</span></a>
-    <a class="row" href="[IEEE_PAPER_LINK]"><span class="t">EMG prosthetic hand <small>reads your muscles, moves a hand</small></span><span class="w">2024</span></a>
-    <a class="row" href="[LINK]"><span class="t">[Project] <small>[one silly line]</small></span><span class="w">[year]</span></a>
-  </div>
-</section>
+<div id="made">
+<h2>Made <small>(things that mostly work)</small></h2>
+<table class="list">
+  <tr><td><a href="https://arxiv.org/abs/2605.30361">Spiking nets trained by evolution</a> <small>on arXiv</small></td><td class="yr">2025</td></tr>
+  <tr><td><a href="https://github.com/cyb3r17/GOTHAM">Social Media OSINT tool</a> <small></small></td><td class="yr">2024</td></tr>
+  <tr><td><a href="https://github.com/discount-Pieter-Levels/Fly_Crackhead">Gave a fly a bunch of drugs</a> <small>For science of course</small></td><td class="yr">[year]</td></tr>
+</table>
+</div>
+
+<hr>
 
 <!-- ─────────── wrote ─────────── -->
-<section id="wrote" class="reveal">
-  <h2><span class="n">03</span>Wrote <span class="aside">on <a href="[YOUR_SUBSTACK_URL]">substack</a></span></h2>
-  <div class="rows">
-    <a class="row" href="[SUBSTACK_POST_LINK]"><span class="t">Nietzsche, Silicon Valley, and the Third Path</span><span class="w">[date]</span></a>
-    <a class="row" href="[SUBSTACK_POST_LINK]"><span class="t">Indian Traffic and the Game Theory of Civic Collapse</span><span class="w">[date]</span></a>
-    <a class="row" href="[SUBSTACK_POST_LINK]"><span class="t">[Essay title]</span><span class="w">[date]</span></a>
-  </div>
-</section>
+<div id="wrote">
+<h2>Wrote <small>(on <a href="https://substack.com/@dhruv292077">substack</a>)</small></h2>
+<table class="list">
+  <tr><td><a href="https://dhruvpatankar.substack.com/p/nietzsche-technology-and-unilateralism?utm_source=share&utm_medium=android&r=3ypn2h">Nietzsche, Technology and Unilateralism</a></td><td class="yr">[date]</td></tr>
+  <tr><td><a href="https://dhruvpatankar.substack.com/p/why-do-people-in-india-drive-so-badly?utm_source=share&utm_medium=android&r=3ypn2h">Why Do People in India Drive so Badly</a></td><td class="yr">[date]</td></tr>
+  <tr><td><a href="https://dhruvpatankar.substack.com/p/inside-the-mind-of-a-conspiracy-theorist?utm_source=share&utm_medium=android&r=3ypn2h">Inside the Mind of a Conspiracy Theorist</a></td><td class="yr">[date]</td></tr>
+</table>
+</div>
+
+<hr>
 
 <!-- ─────────── say hi ─────────── -->
-<section id="hi" class="reveal">
-  <h2><span class="n">04</span>Say hi <span class="aside">I reply to nice emails</span></h2>
-  <div class="chips">
-    <a href="mailto:[YOUR_EMAIL]">email</a>
-    <a href="https://github.com/[YOUR_GITHUB]">github</a>
-    <a href="https://x.com/[YOUR_TWITTER]">x</a>
-    <a href="[YOUR_SUBSTACK_URL]">substack</a>
-    <a href="https://linkedin.com/in/[YOUR_LINKEDIN]">linkedin</a>
-    <a href="[YOUR_ARXIV_PROFILE]">arxiv</a>
+<div id="hi">
+<h2>Say hi <small>(I reply to nice emails)</small></h2>
+<p class="mono" style="font-size:15px">
+&gt; <a href="mailto:dhruv@shunyaresearch.systems">email</a><br>
+&gt; <a href="https://github.com/discount-Pieter-Levels">github</a><br>
+&gt; <a href="https://x.com/Milton_Sneedman">x</a><br>
+&gt; <a href="https://substack.com/@dhruv292077">substack</a><br>
+&gt; <a href="https://in.linkedin.com/in/dhruv-patankar-262941365">linkedin</a><br>
+&gt; <a href="https://arxiv.org/search/cs?searchtype=author&amp;query=Patankar,+D">arxiv</a>
+</p>
+</div>
+
+<hr>
+
+<!-- ─────────── the footer zone ─────────── -->
+<div class="center">
+  <p><i class="dim">Who even reads footers? </i></p>
+
+  <p class="mono dim" style="font-size:14px">you are visitor number<br>
+  <!-- this counter is fake. it counts up from a made-up number, per browser. -->
+  <span class="counter" id="count">001337</span></p>
+
+  <div class="buttons">
+    <span class="b88"><span>made with<br><span class="s">notepad</span></span></span>
+    <span class="b88 inv"><span>brain<br>emulation now</span></span>
+    <span class="b88"><span>no <span class="s">cookies</span><br>(just vibes)</span></span>
+    <span class="b88"><span>best viewed<br>with <span class="s">eyes</span></span></span>
+    <a class="b88" href="https://shunyaresearch.systems"><span><span class="s">shunya</span><br>research</span></a>
   </div>
-</section>
 
-</main>
+  <p style="margin-top:18px"><button class="boop" id="boop">boop the robot</button></p>
 
-<footer>
-  <p class="whisper">[One line you believe. Or a joke. Either is fine, nobody reads footers.]</p>
-  <button class="btn" id="boop">boop the robot ↑</button>
-</footer>
+  <div class="construction" style="margin-top:22px"><span>this page is permanently under construction</span></div>
+
+  <p class="mono dust" style="font-size:12px;margin-top:14px">
+    last updated: <span id="updated">[DATE]</span> &middot; hand-written html &middot; hosted on github pages
+  </p>
+</div>
+
+</div>
 
 <script>
 (function(){
   /* clock */
   var c=document.getElementById('clock');
-  function tick(){c.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})+' IST';}
+  function tick(){c.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'});}
   tick();setInterval(tick,30000);
 
-  /* mood — edit this list, it's yours */
-  var moods=['[compiling]','[caffeinated]','[arguing with a spike train]','[reading Wittgenstein]','[debugging reality]'];
-  document.getElementById('mood').textContent='mood: '+moods[Math.floor(Math.random()*moods.length)];
+  /* mood marquee. edit this list, it's yours */
+  var moods=['compiling','caffeinated','arguing with a spike train','reading Wittgenstein','debugging reality','deciding what to eat (failing)'];
+  var m=moods[Math.floor(Math.random()*moods.length)];
+  document.getElementById('mood').textContent=('*** mood: '+m+' ***          ').repeat(3);
 
-  /* the little guy follows your cursor */
-  var guy=document.getElementById('guy'),pupils=guy.querySelectorAll('[data-pupil]');
-  var eyes=[{x:47,y:60},{x:73,y:60}];
+  /* fake visitor counter: made-up base + your own visits in this browser */
+  var base=1337,n=base+1;
+  try{var v=parseInt(localStorage.getItem('v')||'0',10)+1;localStorage.setItem('v',v);n=base+v;}catch(e){}
+  document.getElementById('count').textContent=String(n).padStart(6,'0');
+
+  /* last updated = the file's own modified date */
+  var d=new Date(document.lastModified);
+  if(!isNaN(d)) document.getElementById('updated').textContent=d.toISOString().slice(0,10);
+
+  /* the robot's eyes follow your cursor */
+  var guy=document.getElementById('guy'),eL=document.getElementById('eL'),eR=document.getElementById('eR');
+  var bL=document.getElementById('bL'),bR=document.getElementById('bR'),mouth=document.getElementById('mouth');
+  var look=' o ',happy=false;
+  function setEyes(s){eL.textContent=s;eR.textContent=s;}
   window.addEventListener('mousemove',function(e){
-    var r=guy.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
-    var a=Math.atan2(e.clientY-cy,e.clientX-cx),d=Math.min(3.5,Math.hypot(e.clientX-cx,e.clientY-cy)/80);
-    pupils.forEach(function(p,i){p.setAttribute('cx',eyes[i].x+Math.cos(a)*d);p.setAttribute('cy',eyes[i].y+Math.sin(a)*d);});
+    var r=guy.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2);
+    look = dx<-60 ? 'o  ' : dx>60 ? '  o' : ' o ';
+    if(!happy) setEyes(look);
   });
   /* it blinks */
-  (function blink(){guy.classList.add('blink');setTimeout(function(){guy.classList.remove('blink')},120);setTimeout(blink,2500+Math.random()*4000);})();
-  /* boop */
-  document.getElementById('boop').addEventListener('click',function(){
-    document.querySelector('.hero').scrollIntoView({behavior:'smooth'});
-    setTimeout(function(){guy.style.transform='scale(1.15) rotate(-6deg)';guy.querySelectorAll('.blush').forEach(function(b){b.style.opacity=.9});
-      setTimeout(function(){guy.style.transform='';guy.querySelectorAll('.blush').forEach(function(b){b.style.opacity=''})},500)},600);
-  });
-  guy.style.transition='transform .25s';
+  (function blink(){
+    if(!happy){setEyes(' - ');setTimeout(function(){if(!happy)setEyes(look)},140);}
+    setTimeout(blink,2500+Math.random()*4000);
+  })();
 
-  /* reveal */
-  var els=document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-  els.forEach(function(e){io.observe(e)});
+  /* boop: it blushes and gets happy */
+  function boop(){
+    guy.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(function(){
+      happy=true;
+      setEyes(' ^ ');bL.textContent='*';bR.textContent='*';mouth.textContent='\\o/';
+      bL.className=bR.className='sod';
+      setTimeout(function(){happy=false;setEyes(look);bL.textContent=' ';bR.textContent=' ';mouth.textContent='\\_/';},900);
+    },500);
+  }
+  guy.addEventListener('click',boop);
+  document.getElementById('boop').addEventListener('click',boop);
 })();
 </script>
 </body>
